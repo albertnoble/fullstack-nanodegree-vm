@@ -1,0 +1,25 @@
+{% extends "head.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row content">
+	<div class="col-sm-12">
+		<h1>Create Item</h1><br>
+		<form action="{{url_for('createItem',name = cat)}}" method='post'>
+			<p>Title</p>
+			<input type="text" name = "title">
+			<p>Description</p>
+			<input type="text" name = "description">
+			<p>Category</p>
+			<select name="category">
+			{% for i in categories %}
+				<option value="{{i.id}}">{{i.name}}</option>
+			{% endfor %}  
+			</select>
+			<input type="submit" value="Submit"><br>
+			<a href="{{url_for('showAllCategories')}}">Back</a>
+		</form>
+    </div>
+</div>
+
+{% endblock %}

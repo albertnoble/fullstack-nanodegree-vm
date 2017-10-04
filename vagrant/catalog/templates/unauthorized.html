@@ -1,0 +1,18 @@
+{% extends "head.html" %}
+{% block content %}
+{% include "header.html" %}
+ 
+<div class="row content">
+	<div class="col-sm-12">
+		You are unauthorized to access the content of this page.<br>
+		Redirecting...
+    </div>
+</div>
+
+<script>
+setTimeout(function() {
+  window.location.href = "/";
+}, 2000);
+</script>
+
+{% endblock %}

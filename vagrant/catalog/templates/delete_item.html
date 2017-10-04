@@ -1,0 +1,17 @@
+{% extends "head.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row content">
+	<div class="col-sm-12 sidenav">
+		<h1>Delete Item</h1><br>
+		<p>Are you sure yu want to delete this item?</p>
+		<p>{{item.name}}</p>
+		<form action="{{url_for('deleteItem',item_name = item.name)}}" method='post'>
+			<input type="submit" value="Submit">
+			<a href="{{url_for('showAllCategories')}}">Back</a>
+		</form>
+    </div>
+</div>
+
+{% endblock %}

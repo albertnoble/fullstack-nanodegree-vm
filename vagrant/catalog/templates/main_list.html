@@ -1,0 +1,28 @@
+{% extends "head.html" %}
+{% block content %}
+{% include "header.html" %}
+  
+<div class="row content">
+	<div class="col-sm-2 sidenav">
+		<h2>Categories</h2>
+		{% for i in categories %}
+			<a href="{{url_for('showCategoryItems',name=i.name)}}">{{i.name}}</a>
+			</br>
+		{% endfor %}
+		{% if 'username' in session: %}
+			<br><a href="{{url_for('createCategory')}}">Create Category</a>
+		{% endif%}	
+    </div>
+    <div class="col-sm-8 text-left"> 
+		<h2>Latest Items</h2>
+		{% for i in items %}
+			<a href="{{url_for('showItem',name=i.categories.name,item=i.name)}}">{{i.name}} ({{i.categories.name}})</a>
+			</br>
+		{% endfor %}
+		{% if 'username' in session: %}
+			<br><a href="{{url_for('createItem',name='Create')}}">Create Item</a>
+		{% endif%}	
+    </div>
+</div>
+
+{% endblock %}

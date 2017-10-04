@@ -1,0 +1,17 @@
+{% extends "head.html" %}
+{% block content %}
+{% include "header.html" %}
+   
+<div class="row content">
+    <div class="col-sm-8 text-left"> 
+		<p>{{item.name}}</p>
+		<p>{{item.description}}</p>
+		<p>{{item.user.name}}</p>
+		</br>
+		{% if 'username' in session: %}
+			<a href="{{url_for('editItem',item_name=item.name)}}">Edit</a> | <a href="{{url_for('deleteItem',item_name=item.name)}}">Delete</a>
+		{% endif %}
+    </div>
+</div>
+
+{% endblock %}
